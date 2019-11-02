@@ -41,27 +41,6 @@ submit.on("click", function(){
   update(filteredData)
 });
 
-
-
-
-// // Loading table data 
-//   el.enter()
-//     .append("tr")
-//     .html(aliens => {
-//       return `<td>${aliens.datetime}</td>
-//       <td>${aliens.city}</td>
-//       <td>${aliens.state}</td>
-//       <td>${aliens.country}</td>
-//       <td>${aliens.shape}</td>
-//       <td>${aliens.durationMinutes}</td>
-//       <td>${aliens.comments}</td>`
-//     })
-//     .append("tr")
-//     .data(() => [filteredData.datetime, filteredData.city, filteredData.state, 
-//       filteredData.country, filteredData.shape, filteredData.durationMinutes, filteredData.comments]);
-
-// });
-
 // Creating handle variable for making the table
 var el = d3.selectAll("tbody")
     .selectAll("tr")
