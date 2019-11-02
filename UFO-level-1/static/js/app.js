@@ -1,12 +1,22 @@
 // from data.js
 var tableData = data;
-console.log(tableData)
 
+// Select the submit button
+var submit = d3.select("#filter-btn");
 
-// // Select the submit button
-// var submit = d3.select("#submit");
+// Listening
+submit.on("click", function(){
+  var inputElement = d3.select("#filter-btn");
+  var inputValue = inputElement.property("value");
+  console.log(inputValue);
+  console.log(tableData)
 
-// Creating handle variable
+  var filteredData = tableData.filter(aliens => aliens.datetime === inputValue);
+  console.log(filteredData)
+
+});
+
+// Creating handle variable for making the table
 var el = d3.selectAll("tbody")
     .selectAll("tr")
     .data(tableData);
