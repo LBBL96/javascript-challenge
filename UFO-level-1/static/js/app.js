@@ -3,20 +3,29 @@ var tableData = data;
 
 // Function to rearrange table data according to filter
 function update(data) {
+
+  // Map the data to the new table
+  var dateTime = data.map(alien => alien.datetime)
+  var city = data.map(alien => alien.city)
+  var state = data.map(alien => alien.state)
+  var country = data.map(alien => alien.country)
+  var shape = data.map(alien => alien.shape)
+  var durationMinutes = data.map(alien => alien.durationMinutes)
+  var comments = data.map(alien => alien.comments)
   
-  var selection = d3.selectAll("tbody").selectAll("tr").data(tableData);
+  var selection = d3.selectAll("tbody").selectAll("tr").data(data);
 
   selection.enter()
     .append("tr")
-    .html(aliens => {
-      return `<td>${aliens.datetime}</td>
-      <td>${aliens.city}</td>
-      <td>${aliens.state}</td>
-      <td>${aliens.country}</td>
-      <td>${aliens.shape}</td>
-      <td>${aliens.durationMinutes}</td>
-      <td>${aliens.comments}</td>`
-    })
+    .html(
+      `<td>${dateTime}</td>
+      <td>${city}</td>
+      <td>${state}</td>
+      <td>${country}</td>
+      <td>${shape}</td>
+      <td>${durationMinutes}</td>
+      <td>${comments}</td>`
+    )
     .merge(selection);
 
   selection.exit().remove();
